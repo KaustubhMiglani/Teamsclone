@@ -1,0 +1,115 @@
+video
+{
+    object-fit: cover;
+    height:400px;
+    width:400px;
+}
+.defined
+{
+    height:100vh;display: flex;
+}
+.left
+{
+    flex:0.75;
+}
+.right
+{
+    flex:0.25;
+}
+#grid
+{
+    background-color: black;
+    flex-grow: 1;
+    height:100%;
+    margin:0;
+    align-items: center;
+    justify-content: center;
+    display:flex;
+}
+
+body
+{
+    margin: 0;
+}
+
+.controls
+{
+    display: flex;
+    padding: 7px;
+    background-color:grey;
+    color:whitesmoke;
+}
+
+.block
+{
+    display: flex;
+}
+
+.buttons
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    cursor: pointer;
+    padding: 10px;
+    
+}
+.right
+{
+    display:flex;
+    background-color: #242324;
+    border-left:2 px solid #3D3D42;
+    flex-direction: column;
+}
+.buttons:hover
+{
+    background-color: black;
+    border-radius: 6px;
+}
+.special
+{
+    color:#EB534B;
+}
+
+.chatbox
+{
+    color:whitesmoke;
+    text-align: center;
+}
+
+.messsagewindow
+{
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.typebox
+{
+    padding: 22px 10px;
+    display: flex;
+}
+
+.typebox input
+{
+    flex-grow: 1;
+    background-color: transparent;
+    border:none;
+    color:whitesmoke;
+}
+video
+{
+    -webkit-transform: scaleX(-1); 
+    transform: scaleX(-1);
+}
+
+.messages
+{
+    color:white;
+    list-style:none;
+}
+.unmute
+{
+    color:red;
+}
