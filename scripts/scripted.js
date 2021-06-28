@@ -4,13 +4,14 @@ var videostream;
 const area=document.getElementById("grid");//for the grid 
 console.log(area);
 const myvideo=document.createElement("video");
-const peer=new Peer(undefined,
+/*const peer=new Peer(undefined,
     {
         path:"/peerjs",
         host:"/",
         port:"443"
 
-    });
+    });*/
+const peer=new Peer();
 myvideo.muted=true;
 navigator.mediaDevices.getUserMedia({
     video:true,
