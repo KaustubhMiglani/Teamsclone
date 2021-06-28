@@ -38,4 +38,4 @@ io.on("connection",function(socket){
     });
 
 });
-server.listen(3000);
+server.listen(process.ENV.port || 3000);
