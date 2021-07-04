@@ -1,3 +1,5 @@
+var nameofperson="Anonymous";
+
 const socket = io('/');
 
 var videostream;
@@ -19,6 +21,12 @@ navigator.mediaDevices.getUserMedia({
 }).then(function(stream){
     console.log("Access granted");
     videostream=stream;
+    var person = prompt("Please enter your name", "Anonymous");
+
+    if (person != null) 
+    {
+        nameofperson=person;
+    }
     showstream(myvideo,stream);
     peer.on("call",function(call)
     {
@@ -37,7 +45,6 @@ navigator.mediaDevices.getUserMedia({
       })
 
     });
-
 peer.on("open",function(urid)
 {
     socket.emit("joined-room",ID,urid);
@@ -56,6 +63,7 @@ function connectnew(urid,stream)
             showstream(video,userVideoStream);
         });
     console.log(urid);
+    present[urid]=call;
 };
 function showstream(video,stream)
 {
@@ -83,7 +91,7 @@ $("html").keydown(function(event)
 
 socket.on("createmsg",function(msg){
     console.log(msg);
-    $("ul").append(`<li class=messages><b>New message</b><br>${msg}</li>`);
+    $("ul").append(`<li class=messages><b>${nameofperson} says</b><br>${msg}</li>`);
     GoDown();
 });
 function GoDown()
