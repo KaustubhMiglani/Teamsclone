@@ -4,22 +4,18 @@ const socket = io('/');
 
 var videostream;
 const area=document.getElementById("grid");//for the grid 
-console.log(area);
+//console.log(area);
 const myvideo=document.createElement("video");
-/*const peer=new Peer(undefined,
-    {
-        path:"/peerjs",
-        host:"/",
-        port:"443"
 
-    });*/
+
+
 const peer=new Peer();
 myvideo.muted=true;
 navigator.mediaDevices.getUserMedia({
     video:true,
     audio:true   
 }).then(function(stream){
-    console.log("Access granted");
+    //console.log("Access granted");
     videostream=stream;
     var person = prompt("Please enter your name", "Anonymous");
 
@@ -34,7 +30,6 @@ navigator.mediaDevices.getUserMedia({
         var video=document.createElement("video");
         call.on("stream",function(newstream)
         {
-            console.log("OK");
             showstream(video,newstream);
         }); 
     });
@@ -48,18 +43,14 @@ navigator.mediaDevices.getUserMedia({
 peer.on("open",function(urid)
 {
     socket.emit("joined-room",ID,urid);
-    console.log("OPOP");
 });
 
 function connectnew(urid,stream)
 {
-    //console.log("User connected");
-    console.log("OK");
     const video=document.createElement("video");
     const call=peer.call(urid,stream);
     call.on("stream",function(userVideoStream)
         {
-            console.log("OP");
             showstream(video,userVideoStream);
         });
     console.log(urid);
@@ -71,7 +62,7 @@ function showstream(video,stream)
     video.addEventListener("loadedmetadata",function()
     {
         video.play();
-        console.log("Video playing");
+        //console.log("Video playing");
     });
     area.append(video);
 }
@@ -83,15 +74,13 @@ $("html").keydown(function(event)
 {
     if(event.which==13 && msg.val().length>0)
         {
-            //console.log(msg.val());
-            socket.emit("entered",msg.val());
+            socket.emit("entered",msg.val(),nameofperson);
             msg.val("");
         }
 });
 
-socket.on("createmsg",function(msg){
-    console.log(msg);
-    $("ul").append(`<li class=messages><b>${nameofperson} says</b><br>${msg}</li>`);
+socket.on("createmsg",function(msg,username){
+    $("ul").append(`<li class=messages><b>${username} says</b><br>${msg}</li>`);
     GoDown();
 });
 function GoDown()
@@ -158,7 +147,5 @@ function turnon()
 function Leave()
 {
     videostream.getVideoTracks()[0].enabled=false;
-    console.log("OPOPLKJNJK");
     window.location.href="left/left"
-    //self.close();
 }

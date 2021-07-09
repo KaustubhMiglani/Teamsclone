@@ -27,13 +27,9 @@ io.on("connection",function(socket){
     socket.on("joined-room",function(ID,urid)
     {
         socket.join(ID);
-        console.log("Works");
-        //console.log(socket.to(ID).broadcast);
         socket.broadcast.to(ID).emit("user-connected",urid);
-        //console.log("room joined");
-        //console.log(urid);
-        socket.on("entered",function(msg){
-            io.to(ID).emit("createmsg",msg);
+        socket.on("entered",function(msg,username){
+            io.to(ID).emit("createmsg",msg,username);
         });
     });
 
