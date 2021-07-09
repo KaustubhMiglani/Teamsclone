@@ -34,9 +34,7 @@ navigator.mediaDevices.getUserMedia({
         }); 
     });
     socket.on("user-connected", function(urid) {
-        setTimeout(() => {
-          connectnew(urid, stream)
-        }, 300)
+        connectnew(urid,stream);
       })
 
     });
@@ -53,7 +51,6 @@ function connectnew(urid,stream)
         {
             showstream(video,userVideoStream);
         });
-    console.log(urid);
     present[urid]=call;
 };
 function showstream(video,stream)
