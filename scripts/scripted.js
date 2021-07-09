@@ -12,7 +12,7 @@ const myvideo=document.createElement("video");
 
 
 
-const peer=new Peer();
+const peer=new Peer(undefined);
 myvideo.muted=true;
 navigator.mediaDevices.getUserMedia({
     video:true,
