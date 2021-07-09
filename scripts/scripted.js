@@ -17,12 +17,13 @@ navigator.mediaDevices.getUserMedia({
 }).then(function(stream){
     //console.log("Access granted");
     videostream=stream;
-    var person = prompt("Please enter your name", "Anonymous");
+    /*var person = prompt("Please enter your name", "Anonymous");
 
     if (person != null) 
     {
         nameofperson=person;
-    }
+    }*/
+    //console.log("Bs");
     showstream(myvideo,stream);
     peer.on("call",function(call)
     {
@@ -35,6 +36,7 @@ navigator.mediaDevices.getUserMedia({
     });
     socket.on("user-connected", function(urid) {
         setTimeout(() => {
+          //console.log("FFGF");
           connectnew(urid, stream)
         }, 300)
       })
@@ -54,7 +56,6 @@ function connectnew(urid,stream)
             showstream(video,userVideoStream);
         });
     console.log(urid);
-    present[urid]=call;
 };
 function showstream(video,stream)
 {
