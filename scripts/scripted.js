@@ -89,7 +89,7 @@ $("html").keydown(function(event)
             nameofperson=for_name.val();
             for_name.val("");
             for_name.hide();
-            alert("Thank you for entering your name");
+            //alert("Thank you for entering your name");
         }
 });
 
