@@ -20,12 +20,12 @@ navigator.mediaDevices.getUserMedia({
 }).then(function(stream){
     //console.log("Access granted");
     videostream=stream;
-    /*var person = prompt("Please enter your name", "Anonymous");
+    var person = prompt("Please enter your name", "Anonymous");
 
     if (person != null) 
     {
         nameofperson=person;
-    }*/
+    }
     //console.log("Bs");
     showstream(myvideo,stream);
     peer.on("call",function(call)
@@ -38,20 +38,13 @@ navigator.mediaDevices.getUserMedia({
         }); 
     });
     socket.on("user-connected", function(urid) {
-        setTimeout(() => {
+        /*setTimeout(() => {
           console.log("FFGF");
           connectnew(urid, stream)
           console.log("POLOL");
-        }, 300)
+        }, 300)*/
+        connectnew(urid,stream);
       })
-      setTimeout(() => {
-    var person = prompt("Please enter your name", "Anonymous");
-
-    if (person != null) 
-    {
-        nameofperson=person;
-    } 
-      }, 1000)
     });
 peer.on("open",function(urid)
 {
