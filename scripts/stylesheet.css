@@ -113,3 +113,19 @@ video
 {
     color:red;
 }
+.namebox
+{
+    padding: 22px 10px;
+    display: flex;
+}
+.white
+{
+    color:white;
+}
+.namebox input
+{
+    flex-grow: 1;
+    background-color: transparent;
+    border:none;
+    color:whitesmoke;
+}

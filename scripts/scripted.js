@@ -72,7 +72,9 @@ function showstream(video,stream)
     area.append(video);
 }
 
-var msg=$("input");
+var msg=$("#chatmessages");
+
+var for_name=$("#namer");
 
 
 $("html").keydown(function(event)
@@ -81,6 +83,13 @@ $("html").keydown(function(event)
         {
             socket.emit("entered",msg.val(),nameofperson);
             msg.val("");
+        }
+    if(event.which==13 && for_name.val().length>0)
+        {
+            nameofperson=for_name.val();
+            for_name.val("");
+            for_name.hide();
+            alert("Thank you for entering your name");
         }
 });
 
