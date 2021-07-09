@@ -38,12 +38,12 @@ navigator.mediaDevices.getUserMedia({
         }); 
     });
     socket.on("user-connected", function(urid) {
-        /*setTimeout(() => {
+        setTimeout(() => {
           console.log("FFGF");
           connectnew(urid, stream)
           console.log("POLOL");
-        }, 300)*/
-        connectnew(urid,stream);
+        }, 300)
+        //connectnew(urid,stream);
       })
     });
 peer.on("open",function(urid)
