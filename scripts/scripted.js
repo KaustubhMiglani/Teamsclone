@@ -20,12 +20,12 @@ navigator.mediaDevices.getUserMedia({
 }).then(function(stream){
     //console.log("Access granted");
     videostream=stream;
-    var person = prompt("Please enter your name", "Anonymous");
+    /*var person = prompt("Please enter your name", "Anonymous");
 
     if (person != null) 
     {
         nameofperson=person;
-    }
+    }*/
     //console.log("Bs");
     showstream(myvideo,stream);
     peer.on("call",function(call)
