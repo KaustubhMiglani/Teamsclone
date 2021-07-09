@@ -1,5 +1,8 @@
 var nameofperson="Anonymous";
 
+var is_set=false;
+
+
 const socket = io('/');
 
 var videostream;
@@ -36,11 +39,19 @@ navigator.mediaDevices.getUserMedia({
     });
     socket.on("user-connected", function(urid) {
         setTimeout(() => {
-          //console.log("FFGF");
+          console.log("FFGF");
           connectnew(urid, stream)
+          console.log("POLOL");
         }, 300)
       })
+      setTimeout(() => {
+    var person = prompt("Please enter your name", "Anonymous");
 
+    if (person != null) 
+    {
+        nameofperson=person;
+    } 
+      }, 1000)
     });
 peer.on("open",function(urid)
 {
